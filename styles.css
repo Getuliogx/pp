@@ -256,3 +256,7 @@ button.ghost {
     grid-template-columns: 1fr;
   }
 }
+
+.season-note {
+  margin: 14px 2px 2px;
+}

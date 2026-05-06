@@ -354,17 +354,6 @@ function renderSeasonSummary(seasonData) {
   const totalMinutes = episodes.reduce((sum, episode) => sum + episode.runtime, 0);
   const totalPrice = calculatePrice(totalMinutes);
 
-  const episodeList = episodes.map((episode) => `
-    <div class="episode-row">
-      <div><strong>Ep ${episode.episodeNumber}</strong></div>
-      <div>
-        <strong>${escapeHtml(episode.name)}</strong>
-        <span class="muted small">${episode.overview ? escapeHtml(episode.overview) : 'Sem descrição.'}</span>
-      </div>
-      <div><strong>${episode.runtime} min</strong></div>
-    </div>
-  `).join('');
-
   document.getElementById('seasonSummary').innerHTML = `
     <div class="kpis">
       <div class="kpi">
@@ -385,9 +374,7 @@ function renderSeasonSummary(seasonData) {
       </div>
     </div>
 
-    <div class="list-grid">
-      ${episodeList || '<p class="muted">Sem episódios disponíveis.</p>'}
-    </div>
+    <p class="muted season-note">Escolha o episódio inicial e final acima para calcular só o trecho que você quiser.</p>
   `;
 }
 
@@ -450,7 +437,7 @@ function calculateSelectedRange() {
       </div>
       <div class="kpi">
         <span>Minutagem</span>
-        <strong>${totalMinutes} min</strong>
+        <strong>${totalMinutes} min / ${minutesToText(totalMinutes)}</strong>
       </div>
       <div class="kpi">
         <span>Valor</span>
