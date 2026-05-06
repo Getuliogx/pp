@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora por Intervalo de Episódios</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1>Calculadora de série por intervalo</h1>
+      <p>Pesquise a série, escolha a temporada, selecione o episódio inicial e final, e o site soma a minutagem automática do intervalo.</p>
+    </header>
+
+    <section class="card settings-card">
+      <div class="grid one-col">
+        <label>
+          <span>Valor por minuto (R$)</span>
+          <input id="pricePerMinute" type="number" min="0" step="0.01" value="0.45" />
+        </label>
+      </div>
+      <div class="actions">
+        <button id="saveSettingsBtn">Salvar valor</button>
+        <button id="resetPriceBtn" class="secondary">Voltar para R$ 0,45/min</button>
+      </div>
+      <p class="muted small">A chave da TMDb está fixa no código e não aparece no site.</p>
+    </section>
+
+    <section class="card search-card">
+      <div class="grid search-grid">
+        <label class="grow">
+          <span>Nome da série</span>
+          <input id="searchInput" type="text" placeholder="Ex.: From, Supernatural, Breaking Bad" />
+        </label>
+        <label class="search-btn-wrap">
+          <span>&nbsp;</span>
+          <button id="searchBtn">Pesquisar</button>
+        </label>
+      </div>
+      <p id="status" class="status"></p>
+    </section>
+
+    <section id="resultsSection" class="card hidden">
+      <h2>Resultados</h2>
+      <div id="results" class="results"></div>
+    </section>
+
+    <section id="detailsSection" class="card hidden">
+      <div id="details"></div>
+    </section>
+
+    <footer class="footer">
+      <p>Este produto usa a API TMDb, mas não é endossado nem certificado pela TMDb.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
